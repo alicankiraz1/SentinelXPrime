@@ -1,0 +1,48 @@
+name: Static Validation
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run static validation
+        run: scripts/static-validation.sh
+
+      - name: Build release archives
+        run: |
+          scripts/package-release.sh
+          SENTINELX_PRIME_FORCE_NO_RSYNC=1 scripts/package-release.sh SentinelXPrime-fallback
+
+      - name: Verify release archives
+        run: |
+          node scripts/verify-release-archive.mjs dist/SentinelXPrime.zip
+          node scripts/verify-release-archive.mjs dist/SentinelXPrime-fallback.zip
+
+      - name: Check archive hygiene
+        run: |
+          if unzip -l dist/*.zip | grep -E '__MACOSX|(^|/)\._'; then
+            echo "AppleDouble artifacts detected in release archive" >&2
+            exit 1
+          fi
+
+      - name: Upload release archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentinelx-prime-release-archive-${{ matrix.os }}
+          path: dist/*.zip

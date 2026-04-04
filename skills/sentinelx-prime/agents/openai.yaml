@@ -1,0 +1,6 @@
+interface:
+  display_name: "SentinelXPrime"
+  short_description: "Stage-aware security guidance for planning, trust-boundary changes, review, and release checkpoints"
+  default_prompt: "Use $sentinelx-prime to assess the current project stage, detect risky implementation changes across authentication, authorization, tokens, secrets, middleware, file handling, outbound requests, CI, deployment, and other trust boundaries, skip doc-only, naming-only, formatting-only, and UI-only changes that do not affect those boundaries, and provide the right security guidance."
+policy:
+  allow_implicit_invocation: true

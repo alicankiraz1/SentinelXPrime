@@ -1,0 +1,6 @@
+interface:
+  display_name: "Security Test Rig"
+  short_description: "Draft a security check plan"
+  default_prompt: "Use $sentinelx-test-rig to propose a stack-aware security check plan for this project."
+policy:
+  allow_implicit_invocation: false

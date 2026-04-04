@@ -1,0 +1,32 @@
+name: Live Acceptance
+
+on:
+  workflow_dispatch:
+
+jobs:
+  live_acceptance:
+    runs-on: self-hosted
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify Codex availability
+        run: |
+          if ! command -v codex >/dev/null 2>&1; then
+            echo "codex CLI is required on the self-hosted runner" >&2
+            exit 1
+          fi
+
+      - name: Run live acceptance suite
+        run: node evals/run-sentinelx-prime.mjs --promote-artifacts
+
+      - name: Upload live acceptance artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentinelx-prime-live-acceptance
+          path: evals/artifacts/

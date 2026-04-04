@@ -1,0 +1,6 @@
+interface:
+  display_name: "Security Plan Gap"
+  short_description: "Find missing security requirements"
+  default_prompt: "Use $sentinelx-plan-gap to review this plan for missing security requirements before implementation."
+policy:
+  allow_implicit_invocation: false

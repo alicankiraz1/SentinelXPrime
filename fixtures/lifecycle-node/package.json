@@ -1,0 +1,14 @@
+{
+  "name": "lifecycle-node-fixture",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

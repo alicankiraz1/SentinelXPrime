@@ -1,0 +1,6 @@
+interface:
+  display_name: "SentinelX Orientation"
+  short_description: "Orient a session to SentinelXPrime stages and checkpoints"
+  default_prompt: "Use $using-sentinelx to orient this session to the SentinelXPrime stages, checkpoints, and recommended next skill."
+policy:
+  allow_implicit_invocation: false

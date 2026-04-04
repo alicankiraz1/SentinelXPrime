@@ -1,0 +1,19 @@
+{
+  "name": "sentinelx-prime",
+  "version": "1.0.0",
+  "description": "Stage-aware security guidance for planning, risky implementation changes, review, and release checkpoints.",
+  "author": {
+    "name": "Alican Kiraz"
+  },
+  "homepage": "https://github.com/alicankiraz1/SentinelXPrime",
+  "repository": "https://github.com/alicankiraz1/SentinelXPrime",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "skills",
+    "codex",
+    "claude-code",
+    "opencode"
+  ],
+  "skills": "./skills/"
+}

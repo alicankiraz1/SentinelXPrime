@@ -1,0 +1,6 @@
+interface:
+  display_name: "Security Review Gate"
+  short_description: "Run an opt-in code security review"
+  default_prompt: "Use $sentinelx-review-gate to run a focused security review on the completed code."
+policy:
+  allow_implicit_invocation: false

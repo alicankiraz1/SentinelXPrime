@@ -1,0 +1,18 @@
+{
+  "name": "sentinelx-prime-dev",
+  "description": "Development marketplace for the SentinelXPrime security skill suite",
+  "owner": {
+    "name": "Alican Kiraz"
+  },
+  "plugins": [
+    {
+      "name": "sentinelx-prime",
+      "description": "Stage-aware security guidance for planning, risky implementation changes, review, and release checkpoints.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Alican Kiraz"
+      }
+    }
+  ]
+}
